@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Asteroides</name>
+    <description>Game estilo asteroids</description>
+    <version>1.0.0.0</version>
+    <author>Luiz Rodrigues da Silva Junior</author>
+    <author-email>contato@lzrodriguez.com</author-email>
+    <author-website>http://</author-website>
+    <app-id>com.lzrodriguez.asteroides</app-id>
+    <unique-id>3vt0ztaxje8s8</unique-id>
+    <saved-with-version>27700</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>320</width>
+        <height>180</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Construct 2 splash</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Point</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="nave" sid="518463632156231">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="379880524345598" speed="5">
+                    <frame duration="1" hotspotX="0.538462" hotspotY="0.545455">
+                        <collision-poly>
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="asteroide1" sid="703052516835389">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Rotate" sid="913295093261236">
+                    <behavior id="Rotate" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="569685580037015" speed="5">
+                    <frame duration="1" hotspotX="0.52" hotspotY="0.52" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="asteroide2" sid="917947871700736">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Rotate" sid="951684465177619">
+                    <behavior id="Rotate" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="805001947389388" speed="5">
+                    <frame duration="1" hotspotX="0.521739" hotspotY="0.521739" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="asteroide3" sid="535456733316065">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Rotate" sid="114134873607723">
+                    <behavior id="Rotate" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="565931789123256" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tiro" sid="898830913130945">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="468392448395909">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="602662543858480" speed="5">
+                    <frame duration="1" hotspotX="0.833333" hotspotY="0.666667" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bomba" sid="177555763028490">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="563076841385832" speed="5">
+                    <frame duration="1" hotspotX="0.533333" hotspotY="0.533333" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="explosão" sid="832527605671566">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="806835390841419">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="306465552869555" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="fundo" sid="154647408711526">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="pontos" sid="223286360156112">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="848198677721362" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.533333" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="pontuacao" sid="184276615325622">
+            <plugin id="Spritefont2" />
+            <texture />
+        </object-type>
+        <object-type name="Keyboard" sid="837094059908508">
+            <plugin id="Keyboard" />
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>game.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>e-game.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Keyboard" uid="10" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

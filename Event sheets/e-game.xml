@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>e-game</name>
+    <events>
+        <variable constant="0" name="proximo_inimigo" sid="527443729499479" static="0" type="number">0</variable>
+        <variable constant="0" name="tipo_inimigo" sid="883426123936098" static="0" type="number">0</variable>
+        <variable constant="0" name="pontuacao" sid="434916704927565" static="0" type="number">0</variable>
+        <comment>movimentação do jogador e tiros</comment>
+        <event-block sid="266165674921849">
+            <conditions>
+                <condition id="2" name="Key is down" sid="773018336299326" type="Keyboard">
+                    <param id="0" name="Key">39</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-18" name="Rotate clockwise" sid="175672678775065" type="nave">
+                    <param id="0" name="Degrees">150 * dt</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="958508690103638">
+            <conditions>
+                <condition id="2" name="Key is down" sid="476744924196681" type="Keyboard">
+                    <param id="0" name="Key">37</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-19" name="Rotate counter-clockwise" sid="583250065232099" type="nave">
+                    <param id="0" name="Degrees">150 * dt</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="300971901954970">
+            <conditions>
+                <condition id="2" name="Key is down" sid="273108272178970" type="Keyboard">
+                    <param id="0" name="Key">38</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-17" name="Move forward" sid="532026890666271" type="nave">
+                    <param id="0" name="Distance">120 * dt</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="712466153530350">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="198551865362669" type="Keyboard">
+                    <param id="0" name="Key">90</param>
+                </condition>
+                <condition id="-8" name="Compare two values" sid="213741322814478" type="System">
+                    <param id="0" name="First value">tiro.Count</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Second value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="176381386096117" type="System">
+                    <param id="0" name="Object to create">tiro</param>
+                    <param id="1" name="Layer">&quot;jogador&quot;</param>
+                    <param id="2" name="X">nave.X</param>
+                    <param id="3" name="Y">nave.Y</param>
+                </action>
+                <action behavior="Bullet" id="5" name="Set enabled" sid="558728777812123" type="tiro">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="297496309335596" type="tiro">
+                    <param id="0" name="Angle">nave.Angle</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="265033774461539">
+            <conditions>
+                <condition id="-3" inverted="1" name="Is on-screen" sid="794055504906886" type="tiro" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="589902006981999" type="tiro" />
+            </actions>
+        </event-block>
+        <comment>inimigos e pontuação</comment>
+        <event-block sid="868782315167448">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="907018361590989" type="System">
+                    <param id="0" name="Interval (seconds)">random(2,10)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="399364185484237">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="686599842677997" type="System">
+                            <param id="0" name="Count">round(random(1,2))</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="509363887022564" type="System">
+                            <param id="0" name="Object to create">asteroide1</param>
+                            <param id="1" name="Layer">&quot;jogador&quot;</param>
+                            <param id="2" name="X">random(20, 300)</param>
+                            <param id="3" name="Y">random(20, 160)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="699547008396599">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="329289246900465" type="System">
+                    <param id="0" name="Interval (seconds)">random(3,6)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="312281071003895">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="527412560754667" type="System">
+                            <param id="0" name="Count">round(random(2,3))</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="948942365838176" type="System">
+                            <param id="0" name="Object to create">asteroide2</param>
+                            <param id="1" name="Layer">&quot;jogador&quot;</param>
+                            <param id="2" name="X">random(20, 300)</param>
+                            <param id="3" name="Y">random(20, 160)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="923231858009673">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="153933247428764" type="System">
+                    <param id="0" name="Interval (seconds)">random(4,7)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="703916632205596">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="793613755757267" type="System">
+                            <param id="0" name="Count">round(random(3,4))</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="582814107827438" type="System">
+                            <param id="0" name="Object to create">asteroide3</param>
+                            <param id="1" name="Layer">&quot;jogador&quot;</param>
+                            <param id="2" name="X">random(20, 300)</param>
+                            <param id="3" name="Y">random(20, 160)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="373751498154991">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="819415495056951" type="asteroide1">
+                    <param id="0" name="Object">tiro</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="861281281485343" type="asteroide1" />
+                <action id="-9" name="Destroy" sid="332155583753993" type="tiro" />
+            </actions>
+            <sub-events>
+                <event-block sid="581568882366206">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="290566418633485" type="System">
+                            <param id="0" name="Count">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="883766524043784" type="System">
+                            <param id="0" name="Object to create">explosão</param>
+                            <param id="1" name="Layer">&quot;jogador&quot;</param>
+                            <param id="2" name="X">asteroide1.X</param>
+                            <param id="3" name="Y">asteroide1.Y</param>
+                        </action>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="570819648532429" type="explosão">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="899716385917209" type="explosão">
+                            <param id="0" name="Angle">90 * loopindex</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="367287411407676" type="System">
+                            <param id="0" name="Variable">pontuacao</param>
+                            <param id="1" name="Value">round(distance(nave.X, nave.Y, asteroide1.X, asteroide1.Y))</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="739086538830125">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="455587545725364" type="asteroide2">
+                    <param id="0" name="Object">tiro</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="655980393893958" type="asteroide2" />
+                <action id="-9" name="Destroy" sid="705634680130812" type="tiro" />
+            </actions>
+            <sub-events>
+                <event-block sid="806383358046225">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="954620012834889" type="System">
+                            <param id="0" name="Count">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="112678061749367" type="System">
+                            <param id="0" name="Object to create">explosão</param>
+                            <param id="1" name="Layer">&quot;jogador&quot;</param>
+                            <param id="2" name="X">asteroide2.X</param>
+                            <param id="3" name="Y">asteroide2.Y</param>
+                        </action>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="514386216896127" type="explosão">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="809475454260043" type="explosão">
+                            <param id="0" name="Angle">90 * loopindex</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="625167758407568" type="System">
+                            <param id="0" name="Variable">pontuacao</param>
+                            <param id="1" name="Value">round(distance(nave.X, nave.Y, asteroide2.X, asteroide2.Y))</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="831560502453163">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="958265885869011" type="asteroide3">
+                    <param id="0" name="Object">tiro</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="119954452193222" type="asteroide3" />
+                <action id="-9" name="Destroy" sid="466240891006077" type="tiro" />
+            </actions>
+            <sub-events>
+                <event-block sid="230606863632653">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="675605296704008" type="System">
+                            <param id="0" name="Count">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="171071913462732" type="System">
+                            <param id="0" name="Object to create">explosão</param>
+                            <param id="1" name="Layer">&quot;jogador&quot;</param>
+                            <param id="2" name="X">asteroide3.X</param>
+                            <param id="3" name="Y">asteroide3.Y</param>
+                        </action>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="360580005733056" type="explosão">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="248380513742353" type="explosão">
+                            <param id="0" name="Angle">90 * loopindex</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="521496103265561" type="System">
+                            <param id="0" name="Variable">pontuacao</param>
+                            <param id="1" name="Value">round(distance(nave.X, nave.Y, asteroide3.X, asteroide3.Y))</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="398797134049143">
+            <conditions />
+            <actions>
+                <action id="0" name="Set text" sid="872735328307451" type="pontuacao">
+                    <param id="0" name="Text">pontuacao</param>
+                </action>
+                <action id="-5" name="Set width" sid="274356444815902" type="pontuacao">
+                    <param id="0" name="Width">pontuacao.TextWidth</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Power-up</comment>
+        <event-block sid="831243962540096">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="782625327991420" type="System">
+                    <param id="0" name="Interval (seconds)">random(10,20)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="631353020035539" type="System">
+                    <param id="0" name="Object to create">bomba</param>
+                    <param id="1" name="Layer">&quot;jogador&quot;</param>
+                    <param id="2" name="X">random(20,300)</param>
+                    <param id="3" name="Y">random(20,160)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="547597800416485">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="106391286436059" type="nave">
+                    <param id="0" name="Object">bomba</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="302944956406981" type="bomba" />
+            </actions>
+            <sub-events>
+                <event-block sid="901906820123336">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="905147736124160" type="System">
+                            <param id="0" name="Object">asteroide1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="686627169954083" type="asteroide1" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="883604355793994">
+                            <conditions>
+                                <condition id="-12" name="Repeat" sid="403773668505847" type="System">
+                                    <param id="0" name="Count">4</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="524286749888394" type="System">
+                                    <param id="0" name="Object to create">explosão</param>
+                                    <param id="1" name="Layer">&quot;jogador&quot;</param>
+                                    <param id="2" name="X">asteroide1.X</param>
+                                    <param id="3" name="Y">asteroide1.Y</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="368462538962073" type="explosão">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="968028403352189" type="explosão">
+                                    <param id="0" name="Angle">90 * loopindex</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="295938851583637" type="System">
+                                    <param id="0" name="Variable">pontuacao</param>
+                                    <param id="1" name="Value">round(distance(nave.X, nave.Y, asteroide1.X, asteroide1.Y))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="790572686841408">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="764423895829443" type="System">
+                            <param id="0" name="Object">asteroide2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="753803255356398" type="asteroide2" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="373933625801801">
+                            <conditions>
+                                <condition id="-12" name="Repeat" sid="620329755235972" type="System">
+                                    <param id="0" name="Count">4</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="330432425209911" type="System">
+                                    <param id="0" name="Object to create">explosão</param>
+                                    <param id="1" name="Layer">&quot;jogador&quot;</param>
+                                    <param id="2" name="X">asteroide2.X</param>
+                                    <param id="3" name="Y">asteroide2.Y</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="193090304148895" type="explosão">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="767012851946315" type="explosão">
+                                    <param id="0" name="Angle">90 * loopindex</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="415445291591129" type="System">
+                                    <param id="0" name="Variable">pontuacao</param>
+                                    <param id="1" name="Value">round(distance(nave.X, nave.Y, asteroide2.X, asteroide2.Y))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="876075918173720">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="642143453977222" type="System">
+                            <param id="0" name="Object">asteroide3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="132034908833785" type="asteroide3" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="876922297045534">
+                            <conditions>
+                                <condition id="-12" name="Repeat" sid="388896796435587" type="System">
+                                    <param id="0" name="Count">4</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="124048533741396" type="System">
+                                    <param id="0" name="Object to create">explosão</param>
+                                    <param id="1" name="Layer">&quot;jogador&quot;</param>
+                                    <param id="2" name="X">asteroide3.X</param>
+                                    <param id="3" name="Y">asteroide3.Y</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="517158165439793" type="explosão">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="738976758685794" type="explosão">
+                                    <param id="0" name="Angle">90 * loopindex</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="462069930327955" type="System">
+                                    <param id="0" name="Variable">pontuacao</param>
+                                    <param id="1" name="Value">round(distance(nave.X, nave.Y, asteroide3.X, asteroide3.Y))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
