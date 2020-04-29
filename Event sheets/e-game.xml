@@ -58,14 +58,20 @@
                 <action id="-3" name="Create object" sid="176381386096117" type="System">
                     <param id="0" name="Object to create">tiro</param>
                     <param id="1" name="Layer">&quot;jogador&quot;</param>
-                    <param id="2" name="X">nave.X</param>
-                    <param id="3" name="Y">nave.Y</param>
+                    <param id="2" name="X">nave.ImagePointX(&quot;tiro&quot;)</param>
+                    <param id="3" name="Y">nave.ImagePointY(&quot;tiro&quot;)</param>
                 </action>
                 <action behavior="Bullet" id="5" name="Set enabled" sid="558728777812123" type="tiro">
                     <param id="0" name="State">1</param>
                 </action>
                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="297496309335596" type="tiro">
                     <param id="0" name="Angle">nave.Angle</param>
+                </action>
+                <action id="0" name="Play" sid="976768162838790" type="Audio">
+                    <param id="0" name="Audio file">Laser_Shoot</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;tiro_laser&quot;</param>
                 </action>
             </actions>
         </event-block>
@@ -162,6 +168,12 @@
             <actions>
                 <action id="-9" name="Destroy" sid="861281281485343" type="asteroide1" />
                 <action id="-9" name="Destroy" sid="332155583753993" type="tiro" />
+                <action id="0" name="Play" sid="942411053303100" type="Audio">
+                    <param id="0" name="Audio file">Explosion6</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;explosao&quot;</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block sid="581568882366206">
@@ -200,6 +212,12 @@
             <actions>
                 <action id="-9" name="Destroy" sid="655980393893958" type="asteroide2" />
                 <action id="-9" name="Destroy" sid="705634680130812" type="tiro" />
+                <action id="0" name="Play" sid="699514944797419" type="Audio">
+                    <param id="0" name="Audio file">Explosion6</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;explosao&quot;</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block sid="806383358046225">
@@ -238,6 +256,12 @@
             <actions>
                 <action id="-9" name="Destroy" sid="119954452193222" type="asteroide3" />
                 <action id="-9" name="Destroy" sid="466240891006077" type="tiro" />
+                <action id="0" name="Play" sid="955163756595834" type="Audio">
+                    <param id="0" name="Audio file">Explosion6</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;explosao&quot;</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block sid="230606863632653">
